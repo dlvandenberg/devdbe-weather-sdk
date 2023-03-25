@@ -12,13 +12,13 @@ public protocol WeatherApi {
 }
 
 public class WeatherApiImpl: WeatherApi {
+    public init(apiKey: String) {
+        self.apiKey = apiKey
+    }
+    
     private var apiKey: String
     
     let baseUrl = "https://api.weatherbit.io/v2.0/"
-    
-    public init(apikey: String) {
-        apiKey = apikey
-    }
     
     public func dailyForecast(city: String, countryCode: String, days: Int) async -> RForecastDay? {
         let endpointUrl = "forecast/daily"
