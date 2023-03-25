@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RForecastDay: Decodable {
+public struct RForecastDay: Decodable {
     var city_name: String?
     var country_code: String?
     var lat: String?
@@ -15,13 +15,13 @@ struct RForecastDay: Decodable {
     var data: [RForecast]
 }
 
-struct RForecast: Decodable {
+public struct RForecast: Decodable {
     var datetime: String?
     var temp: Float?
     var weather: RWeather?
 }
 
-struct RWeather: Decodable {
+public struct RWeather: Decodable {
     var description: String?
     var code: Int?
 }

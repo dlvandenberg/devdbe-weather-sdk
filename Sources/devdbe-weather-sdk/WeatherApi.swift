@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol WeatherApi {
+public protocol WeatherApi {
     func dailyForecast(city: String, countryCode: String, days: Int) async -> RForecastDay?
 }
 
-struct WeatherApiImpl: WeatherApi {
+public struct WeatherApiImpl: WeatherApi {
     private var apiKey: String {
         get {
             guard let filePath = Bundle.main.path(forResource: "weather-api", ofType: "plist") else {
@@ -29,7 +29,7 @@ struct WeatherApiImpl: WeatherApi {
     
     let baseUrl = "https://api.weatherbit.io/v2.0/"
     
-    func dailyForecast(city: String, countryCode: String, days: Int) async -> RForecastDay? {
+    public func dailyForecast(city: String, countryCode: String, days: Int) async -> RForecastDay? {
         let endpointUrl = "forecast/daily"
         let path = baseUrl + endpointUrl
         
