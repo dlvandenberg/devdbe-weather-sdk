@@ -29,6 +29,8 @@ public struct WeatherApiImpl: WeatherApi {
     
     let baseUrl = "https://api.weatherbit.io/v2.0/"
     
+    public init() {}
+    
     public func dailyForecast(city: String, countryCode: String, days: Int) async -> RForecastDay? {
         let endpointUrl = "forecast/daily"
         let path = baseUrl + endpointUrl
