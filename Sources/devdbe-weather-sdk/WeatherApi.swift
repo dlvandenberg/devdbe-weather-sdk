@@ -11,7 +11,7 @@ public protocol WeatherApi {
     func dailyForecast(city: String, countryCode: String, days: Int) async -> RForecastDay?
 }
 
-public struct WeatherApiImpl: WeatherApi {
+public class WeatherApiImpl: WeatherApi {
     private var apiKey: String
     
     let baseUrl = "https://api.weatherbit.io/v2.0/"
