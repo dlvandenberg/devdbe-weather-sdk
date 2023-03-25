@@ -12,24 +12,13 @@ public protocol WeatherApi {
 }
 
 public struct WeatherApiImpl: WeatherApi {
-    private var apiKey: String {
-        get {
-            guard let filePath = Bundle.main.path(forResource: "weather-api", ofType: "plist") else {
-                fatalError("Could not find file: weather-api.plist")
-            }
-            
-            let plist = NSDictionary(contentsOfFile: filePath)
-            guard let value = plist?.object(forKey: "API_KEY") as? String else {
-                fatalError("Could not find key 'API_KEY' in 'weather-api.plist'")
-            }
-            
-            return value
-        }
-    }
+    private var apiKey: String
     
     let baseUrl = "https://api.weatherbit.io/v2.0/"
     
-    public init() {}
+    public init(apikey: String) {
+        apiKey = apikey
+    }
     
     public func dailyForecast(city: String, countryCode: String, days: Int) async -> RForecastDay? {
         let endpointUrl = "forecast/daily"
