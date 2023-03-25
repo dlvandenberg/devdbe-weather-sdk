@@ -5,11 +5,18 @@ import PackageDescription
 
 let package = Package(
     name: "devdbe-weather-sdk",
+    platforms: [
+        .macOS(.v13),
+        .iOS(.v15)
+    ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "devdbe-weather-sdk",
-            targets: ["devdbe-weather-sdk"]),
+            targets: [
+                "devdbe-weather-sdk",
+                "WeatherApi"
+            ]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
