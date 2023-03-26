@@ -51,7 +51,7 @@ public class WeatherApiImpl: WeatherApi {
             
             do {
                 let decodedForecast = try JSONDecoder().decode(RForecastDay.self, from: data)
-                print("SDK: Received \(decodedForecast.data.count) forecasts for \(decodedForecast.city_name)")
+                print("SDK: Received \(decodedForecast.data.count) forecasts for \(decodedForecast.city_name ?? "--")")
                 return decodedForecast
             } catch {
                 print("SDK: Could not decode: \(error)")
