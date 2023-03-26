@@ -28,7 +28,7 @@ public class WeatherApiImpl: WeatherApi {
             fatalError("Could not create API URL")
         }
         urlComponents.queryItems = [
-            URLQueryItem(name: "key", value: "test"),
+            URLQueryItem(name: "key", value: self.apiKey),
             URLQueryItem(name: "city", value: city),
             URLQueryItem(name: "country", value: countryCode),
             URLQueryItem(name: "days", value: String(days))
