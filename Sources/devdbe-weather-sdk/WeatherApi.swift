@@ -14,6 +14,7 @@ public protocol WeatherApi {
 public class WeatherApiImpl: WeatherApi {
     public init(apiKey: String) {
         self.apiKey = apiKey
+        print("SDK: Initialized WeatherAPI.")
     }
     
     private var apiKey: String
@@ -39,24 +40,25 @@ public class WeatherApiImpl: WeatherApi {
         }
         
         do {
-            print("Trying to fetch data from url \(url)")
+            print("SDK: Trying to fetch data from url \(url)")
             
             let (data, response) = try await URLSession.shared.data(from: url)
             
             guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-                print("Status !== 200 ")
+                print("SDK: Status !== 200 ")
                 return nil
             }
             
             do {
                 let decodedForecast = try JSONDecoder().decode(RForecastDay.self, from: data)
+                print("SDK: Received \(decodedForecast.data.count) forecasts for \(decodedForecast.city_name)")
                 return decodedForecast
             } catch {
-                print("Could not decode: \(error)")
+                print("SDK: Could not decode: \(error)")
                 return nil
             }
         } catch {
-            print("Error while fetching data \(error)")
+            print("SDK: Error while fetching data \(error)")
             return nil
         }
     }
