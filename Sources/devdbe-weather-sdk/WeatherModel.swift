@@ -8,7 +8,7 @@
 import Foundation
 
 public struct RForecastDay: Decodable {
-    public init(city_name: String? = nil, country_code: String? = nil, lat: String? = nil, lon: String? = nil, data: [RForecast]? = []) {
+    public init(city_name: String? = nil, country_code: String? = nil, lat: String? = nil, lon: String? = nil, data: [RForecast] = []) {
         self.city_name = city_name
         self.country_code = country_code
         self.lat = lat
@@ -20,7 +20,7 @@ public struct RForecastDay: Decodable {
     public var country_code: String?
     public var lat: String?
     public var lon: String?
-    public var data: [RForecast]?
+    public var data: [RForecast]
 }
 
 public struct RForecast: Decodable {
