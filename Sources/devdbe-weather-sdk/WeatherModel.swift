@@ -16,11 +16,11 @@ public struct RForecastDay: Decodable {
         self.data = data
     }
     
-    var city_name: String?
-    var country_code: String?
-    var lat: String?
-    var lon: String?
-    var data: [RForecast]?
+    public var city_name: String?
+    public var country_code: String?
+    public var lat: String?
+    public var lon: String?
+    public var data: [RForecast]?
 }
 
 public struct RForecast: Decodable {
@@ -30,9 +30,9 @@ public struct RForecast: Decodable {
         self.weather = weather
     }
     
-    var datetime: String?
-    var temp: Float?
-    var weather: RWeather?
+    public var datetime: String?
+    public var temp: Float?
+    public var weather: RWeather?
 }
 
 public struct RWeather: Decodable {
@@ -41,6 +41,6 @@ public struct RWeather: Decodable {
         self.code = code
     }
     
-    var description: String?
-    var code: Int?
+    public var description: String?
+    public var code: Int?
 }
